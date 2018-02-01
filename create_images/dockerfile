@@ -1,0 +1,10 @@
+FROM ubuntu:14.04
+MAINTAINER VCX-ADMIN
+WORKDIR /root/create_images
+ADD installUbuntuDeps.sh /root/create_images
+CMD ["./installUbuntuDeps.sh"]
+RUN echo "./installUbuntuDeps.sh"
+## added interdependent script
+ADD checkNvm.sh /root/create_images
+RUN echo "./checkNvm.sh"
+ENTRYPOINT ["./installUbuntuDeps.sh /root/create_images"]
